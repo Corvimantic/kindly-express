@@ -1,5 +1,6 @@
 <div>
-  <div><a href="#!">back</a></div>
-  <textarea rows="4" cols="50" id="submission-text"></textarea>
-  <button id="submit-button">Submit</button>
+  <div><a href="/">back</a></div>
+  <textarea rows="4" cols="50" id="submission-text" ng-model="$ctrl.submission"></textarea>
+  <button id="submit-button" ng-click="$ctrl.submit($ctrl.submission)">Submit</button>
+  <div ng-show="$ctrl.submitted">Your message has been submitted!</div>
 </div>
