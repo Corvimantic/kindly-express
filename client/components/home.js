@@ -1,11 +1,14 @@
 angular.module('app')
 .component('home', {
-  controller: function() {
-    this.message = 'hi';
+  controller: function(messagesService) {
+    this.message = '';
     this.$onInit = function() {
-      console.log('hello');
-      // GET /messages
-      // set message to result
+      var scope = this;
+      messagesService.getMessage(function(data) {
+        console.log('Data received');
+        console.log(data);
+        scope.message = data.data;
+      });
     };
     this.$onInit.bind(this);
   },
