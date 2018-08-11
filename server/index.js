@@ -11,6 +11,14 @@ app.get('/submit', function (req, res) {
   res.redirect('/#!submit');
 })
 
+app.post('/submit', function (req, res) {
+  // TODO
+})
+
+app.get('/messages', function (req, res) {
+  // TODO
+})
+
 app.listen(3000, function() {
   console.log('listening on port 3000!');
 });
