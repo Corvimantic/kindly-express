@@ -1,6 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-//var items = require('../database');
+var database = require('../database/index');
 
 var app = express();
 var textParser = bodyParser.text();
@@ -17,8 +17,9 @@ app.get('/submit', function (req, res) {
 app.post('/submit', textParser, function (req, res) {
   // TODO
   console.log(req.body);
-  tempStorage.push(req.body);
-  res.send(true);
+  database.saveNewMessage(req.body, function(err, results) {
+    res.send(true);
+  });
 })
 
 app.get('/messages', function (req, res) {
