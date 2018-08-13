@@ -15,8 +15,6 @@ app.get('/submit', function (req, res) {
 })
 
 app.post('/submit', textParser, function (req, res) {
-  // TODO
-  console.log(req.body);
   database.saveNewMessage(req.body, function(err, results) {
     res.send(true);
   });
