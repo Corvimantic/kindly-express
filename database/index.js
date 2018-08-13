@@ -15,7 +15,7 @@ var selectRandomMessage = function(callback) {
       if (err) {
         reject(err);
       } else {
-        var id = getRandomInt(results);
+        var id = getRandomInt(results[0]['COUNT(*)']);
         resolve(id);
       }
     });
@@ -25,7 +25,7 @@ var selectRandomMessage = function(callback) {
       if(err) {
         callback(err, null);
       } else {
-        callback(null, results);
+        callback(null, results[0].message);
       }
     });
   });
