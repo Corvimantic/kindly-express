@@ -23,8 +23,9 @@ app.post('/submit', textParser, function (req, res) {
 })
 
 app.get('/messages', function (req, res) {
-  // TODO
-  res.send(tempStorage[0]);
+  database.selectRandomMessage(function(err, results) {
+    res.send(results);
+  });
 })
 
 app.listen(3000, function() {
